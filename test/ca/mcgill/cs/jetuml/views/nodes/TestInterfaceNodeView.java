@@ -24,6 +24,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import static ca.mcgill.cs.jetuml.ConfigurationSpecificValues.get;
+import static ca.mcgill.cs.jetuml.ConfigurationSpecificValues.Value.*;
+
+
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -105,9 +109,9 @@ public class TestInterfaceNodeView
 	@Test
 	public void testComputeTop()
 	{
-		assertEquals(new Rectangle(0,0,100,60), ((InterfaceNodeView)aNode1.view()).computeTop());
+		assertEquals(new Rectangle(0,0,get(WidthOfInterfaceNode),60), ((InterfaceNodeView)aNode1.view()).computeTop());
 		aNode1.setName("X\nX\nX\nX");
-		assertEquals(new Rectangle(0,0,100,84), ((InterfaceNodeView)aNode1.view()).computeTop());
+		assertEquals(new Rectangle(0,0,100,get(HeightOf4Xes)), ((InterfaceNodeView)aNode1.view()).computeTop());
 		aNode1.setName("");
 		assertEquals(new Rectangle(0,0,100,60), ((InterfaceNodeView)aNode1.view()).computeTop());
 		
@@ -117,9 +121,9 @@ public class TestInterfaceNodeView
 		assertEquals(new Rectangle(0,0,100,40), ((InterfaceNodeView)aNode1.view()).computeTop());
 		
 		aNode1.setName("X\nX\nX");
-		assertEquals(new Rectangle(0,0,100,64), ((InterfaceNodeView)aNode1.view()).computeTop());
+		assertEquals(new Rectangle(0,0,100,get(HeightOf3Xes)), ((InterfaceNodeView)aNode1.view()).computeTop());
 		aNode1.setName("X\nX\nX\nX");
-		assertEquals(new Rectangle(0,0,100,84), ((InterfaceNodeView)aNode1.view()).computeTop());
+		assertEquals(new Rectangle(0,0,100,get(HeightOf4Xes)), ((InterfaceNodeView)aNode1.view()).computeTop());
 	}
 	
 	@Test
