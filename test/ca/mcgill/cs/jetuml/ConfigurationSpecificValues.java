@@ -1,9 +1,6 @@
 package ca.mcgill.cs.jetuml;
 
-import static org.junit.Assume.assumeFalse;
 import static org.junit.Assume.assumeTrue;
-
-import java.util.Map;
 
 /**
  * @author Martin P. Robillard
@@ -40,6 +37,11 @@ public final class ConfigurationSpecificValues
 	{
 		assumeTrue(CONFIG != Config.Undetected);
 		return VALUES[pValue.ordinal()][CONFIG.ordinal()-1];
+	}
+	
+	public static void main(String[] args)
+	{
+		System.getProperties().list(System.out);
 	}
 	
 	private static Config detect()
